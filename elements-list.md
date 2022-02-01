@@ -1,0 +1,34 @@
+# Pages
+- ControlPanel
+- BedRoom
+- LivingRoom
+- Kitchen
+- Bathroom
+- Outdoor
+- Balcony
+
+# Templates
+- Header
+- Main
+- RoomSelector
+- LightSelector
+- IntensityAdjuster
+- ColorSelector
+- Footer
+- Navigation
+
+# Components
+- Title
+- LightCount
+- ProfileIcon
+- Lamp
+- Lightbulb
+- Icon
+- Link
+- Heading
+- RoomCard
+- RoomIcon
+- ButtonText
+- Button
+- ColorIcon
+- CoolerAdder

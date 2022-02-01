@@ -10,13 +10,14 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<ControlPanel />} />
-        <Route path="/bed-room" element={<BedRoom />} />
-        <Route path="/living-room" element={<BedRoom />} />
-        <Route path="/kitchen" element={<BedRoom />} />
-        <Route path="/bathroom" element={<BedRoom />} />
-        <Route path="/outdoor" element={<BedRoom />} />
-        <Route path="/balcony" element={<BedRoom />} />
+        <Route exact path="/" element={<ControlPanel />} />
+        <Route exact path="/bed-room" element={<BedRoom />} />
+        <Route exact path="/living-room" element={<BedRoom />} />
+        <Route exact path="/kitchen" element={<BedRoom />} />
+        <Route exact path="/bathroom" element={<BedRoom />} />
+        <Route exact path="/outdoor" element={<BedRoom />} />
+        <Route exact path="/balcony" element={<BedRoom />} />
+        <Route path="*" element="Nothing found..." />
       </Routes>
     </div>
   );

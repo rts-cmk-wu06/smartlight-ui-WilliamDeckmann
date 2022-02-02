@@ -3,28 +3,24 @@ import { Routes, Route } from "react-router-dom";
 
 // Pages
 import ControlPanel from "../pages/ControlPanel";
-import BedRoom from "../pages/BedRoom";
+import RoomAdjuster from "../pages/RoomAdjuster";
 
 // Templates
-import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 
 function App() {
   return (
     <div className="App">
-      <Header>
-        Header
-      </Header>
       <Main>
         <Routes>
           <Route exact path="/" element={<ControlPanel />} />
-          <Route exact path="/bed-room" element={<BedRoom />} />
-          <Route exact path="/living-room" element={<BedRoom />} />
-          <Route exact path="/kitchen" element={<BedRoom />} />
-          <Route exact path="/bathroom" element={<BedRoom />} />
-          <Route exact path="/outdoor" element={<BedRoom />} />
-          <Route exact path="/balcony" element={<BedRoom />} />
+          <Route exact path="/bed-room" element={<RoomAdjuster name="Bed Room" />} />
+          <Route exact path="/living-room" element={<RoomAdjuster name="Living Room" />} />
+          <Route exact path="/kitchen" element={<RoomAdjuster name="Kitchen" />} />
+          <Route exact path="/bathroom" element={<RoomAdjuster name="Bathroom" />} />
+          <Route exact path="/outdoor" element={<RoomAdjuster name="Outdoor" />} />
+          <Route exact path="/balcony" element={<RoomAdjuster name="Balcony" />} />
           <Route path="*" element="Nothing found..." />
         </Routes>
       </Main>

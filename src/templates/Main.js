@@ -1,6 +1,6 @@
 const Main = (props) => {
     return (
-        <div className="Main">
+        <div className="Main w-full">
             {props.children}
         </div>
     );

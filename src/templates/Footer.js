@@ -1,8 +1,8 @@
 const Footer = (props) => {
     return (
-        <div className="Footer">
+        <footer className="Footer w-100 p-5 flex justify-center bg-white">
             {props.children}
-        </div>
+        </footer>
     );
 }
  

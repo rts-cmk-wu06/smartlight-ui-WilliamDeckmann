@@ -1,8 +1,8 @@
 const Header = (props) => {
     return (
-        <div className="Header">
+        <header className="Header">
             {props.children}
-        </div>
+        </header>
     );
 }
  

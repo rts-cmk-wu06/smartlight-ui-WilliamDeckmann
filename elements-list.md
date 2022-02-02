@@ -24,7 +24,7 @@
 - Lamp
 - Lightbulb
 - Icon
-- Link
+- NavigationLink
 - Heading
 - RoomCard
 - RoomIcon

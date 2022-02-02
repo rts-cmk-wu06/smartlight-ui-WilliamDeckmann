@@ -6,16 +6,12 @@ import ControlPanel from "../pages/ControlPanel";
 import BedRoom from "../pages/BedRoom";
 
 // Templates
-import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 
 function App() {
   return (
     <div className="App">
-      <Header>
-        Header
-      </Header>
       <Main>
         <Routes>
           <Route exact path="/" element={<ControlPanel />} />

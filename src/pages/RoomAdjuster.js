@@ -1,6 +1,6 @@
 // Templates
-import { filterProps } from "framer-motion";
 import Header from "../templates/Header";
+import Main from "../templates/Main";
 
 const RoomAdjuster = (props) => {
     return (
@@ -9,6 +9,9 @@ const RoomAdjuster = (props) => {
             <Header>
                 Header
             </Header>
+            <Main>
+                Main
+            </Main>
         </div>
     );
 }

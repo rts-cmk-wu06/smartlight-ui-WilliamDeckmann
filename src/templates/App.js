@@ -8,6 +8,7 @@ import RoomAdjuster from "../pages/RoomAdjuster";
 // Templates
 import Main from "./Main";
 import Footer from "./Footer";
+import Navigation from "./Navigation";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         </Routes>
       </Main>
       <Footer>
-        Footer
+        <Navigation />
       </Footer>
     </div>
   );

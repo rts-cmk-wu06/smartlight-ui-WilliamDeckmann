@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 // Pages
 import ControlPanel from "../pages/ControlPanel";
-import BedRoom from "../pages/BedRoom";
+import RoomAdjuster from "../pages/RoomAdjuster";
 
 // Templates
 import Main from "./Main";
@@ -15,12 +15,12 @@ function App() {
       <Main>
         <Routes>
           <Route exact path="/" element={<ControlPanel />} />
-          <Route exact path="/bed-room" element={<BedRoom />} />
-          <Route exact path="/living-room" element={<BedRoom />} />
-          <Route exact path="/kitchen" element={<BedRoom />} />
-          <Route exact path="/bathroom" element={<BedRoom />} />
-          <Route exact path="/outdoor" element={<BedRoom />} />
-          <Route exact path="/balcony" element={<BedRoom />} />
+          <Route exact path="/bed-room" element={<RoomAdjuster />} />
+          <Route exact path="/living-room" element={<RoomAdjuster />} />
+          <Route exact path="/kitchen" element={<RoomAdjuster />} />
+          <Route exact path="/bathroom" element={<RoomAdjuster />} />
+          <Route exact path="/outdoor" element={<RoomAdjuster />} />
+          <Route exact path="/balcony" element={<RoomAdjuster />} />
           <Route path="*" element="Nothing found..." />
         </Routes>
       </Main>

@@ -1,6 +1,7 @@
 // Templates
 import Header from "../templates/Header";
 import Main from "../templates/Main";
+import RoomSelector from "../templates/RoomSelector";
 
 const ControlPanel = () => {
     return (
@@ -10,7 +11,7 @@ const ControlPanel = () => {
                 Header
             </Header>
             <Main>
-                Main
+                <RoomSelector />
             </Main>
         </div>
     );

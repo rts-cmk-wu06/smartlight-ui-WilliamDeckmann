@@ -1,6 +1,6 @@
 const TextSmall = (props) => {
     return (
-        <h2 className="Heading-small text-sm font-medium">
+        <h2 className="Heading-small text-xs font-medium">
             {props.text}
         </h2>
     );

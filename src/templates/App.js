@@ -17,7 +17,7 @@ function App() {
   }
 
   return (
-    <div className="App" style={styles}>
+    <div className="App bg-background" style={styles}>
       <Routes>
         <Route exact path="/" element={<ControlPanel />} />
         <Route exact path="/bed-room" element={<RoomAdjuster name="Bed Room" />} />

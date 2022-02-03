@@ -27,7 +27,6 @@
 - NavigationLink
 - Heading
 - RoomCard
-- RoomIcon
 - ButtonText
 - Button
 - ColorIcon

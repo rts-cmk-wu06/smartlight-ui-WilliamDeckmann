@@ -3,9 +3,10 @@ import Header from "../templates/Header";
 import Main from "../templates/Main";
 
 // Components
+import BackButton from "../components/BackButton";
 import PageHeading from "../components/PageHeading";
 import LightCountBig from "../components/LightCountBig";
-import BackButton from "../components/BackButton";
+import Lamp from "../components/Lamp";
 
 const RoomAdjuster = (props) => {
     console.log(props);
@@ -20,6 +21,7 @@ const RoomAdjuster = (props) => {
                         </span>
                         <LightCountBig text={props.lights} />
                     </article>
+                    <Lamp color="#ffd139" shine="#ffc72f" />
                 </section>
             </Header>
             <Main>

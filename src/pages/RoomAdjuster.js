@@ -9,7 +9,6 @@ import LightCountBig from "../components/LightCountBig";
 import Lamp from "../components/Lamp";
 
 const RoomAdjuster = (props) => {
-    console.log(props);
     return (
         <div className="RoomAdjuster">
             <Header>

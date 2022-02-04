@@ -13,8 +13,10 @@ module.exports = {
         containerHeading: "#002D67",
         cardHeading: "#393939",
         lightCount: "#FFA939",
-        buttonTextActive: "#FFFFFF",
-        buttonTextInactive: "#002D67",
+        buttonText: {
+          active: "#FFFFFF",
+          inactive: "#002D67",
+        },
 
         buttonRed: {
           start: "#FF9B9B",

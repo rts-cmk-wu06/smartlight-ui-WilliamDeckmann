@@ -1,13 +1,14 @@
 // Templates
 import Header from "../templates/Header";
 import Main from "../templates/Main";
+import ColorSelector from "../templates/ColorSelector";
+import SceneSelector from "../templates/SceneSelector";
 
 // Components
 import BackButton from "../components/BackButton";
 import PageHeading from "../components/PageHeading";
 import LightCountBig from "../components/LightCountBig";
 import Lamp from "../components/Lamp";
-import ColorSelector from "../templates/ColorSelector";
 
 const RoomAdjuster = (props) => {
     return (
@@ -26,6 +27,7 @@ const RoomAdjuster = (props) => {
             </Header>
             <Main>
                 <ColorSelector />
+                <SceneSelector />
             </Main>
         </div>
     );

@@ -12,10 +12,17 @@ module.exports = {
         pageHeading: "#FFFFFF",
         containerHeading: "#002D67",
         cardHeading: "#393939",
-        lightCount: "#FFA939",
+        lightCount: {
+          small: "#FFA939",
+          big:"#FFD239",
+        },
         buttonText: {
           active: "#FFFFFF",
           inactive: "#002D67",
+        },
+        profileIcon: {
+          border: "#FFFFFF",
+          notification: "#FF9898",
         },
 
         buttonRed: {

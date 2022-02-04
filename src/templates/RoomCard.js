@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // Components
 import Icon from "../components/Icon";
 import CardHeading from "../components/CardHeading";
-import LightCount from "../components/LightCount";
+import LightCountSmall from "../components/LightCountSmall";
 
 const RoomCard = (props) => {
     return (
@@ -15,7 +15,7 @@ const RoomCard = (props) => {
                 </figure>
                 <article className="Room-card__article">
                     <CardHeading text={props.name} />
-                    <LightCount text={props.lights} />
+                    <LightCountSmall text={props.lights} />
                 </article>
             </div>
         </Link>

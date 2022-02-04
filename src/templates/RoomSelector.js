@@ -12,7 +12,7 @@ import RoomCard from "./RoomCard";
 // Components
 import ContainerHeading from "../components/ContainerHeading"
 
-const RoomSelector = () => {
+const RoomSelector = (props) => {
     return (
         <div className="Room-selector flex flex-col gap-y-6">
             <ContainerHeading text="All Rooms" />

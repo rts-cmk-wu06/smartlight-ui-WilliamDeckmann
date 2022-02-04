@@ -1,12 +1,12 @@
 // Components
 import TextSmall from "./TextSmall"
 
-const LightCount = (props) => {
+const LightCountSmall = (props) => {
     return (
-        <span className="Heading-big text-lightCount">
+        <span className="Heading-big text-lightCount-small">
             <TextSmall text={`${props.text} Lights`} />
         </span>
     );
 }
  
-export default LightCount;
+export default LightCountSmall;

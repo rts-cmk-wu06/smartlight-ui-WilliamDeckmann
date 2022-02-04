@@ -7,6 +7,7 @@ import BackButton from "../components/BackButton";
 import PageHeading from "../components/PageHeading";
 import LightCountBig from "../components/LightCountBig";
 import Lamp from "../components/Lamp";
+import ColorSelector from "../templates/ColorSelector";
 
 const RoomAdjuster = (props) => {
     return (
@@ -24,7 +25,7 @@ const RoomAdjuster = (props) => {
                 </section>
             </Header>
             <Main>
-                Main
+                <ColorSelector />
             </Main>
         </div>
     );

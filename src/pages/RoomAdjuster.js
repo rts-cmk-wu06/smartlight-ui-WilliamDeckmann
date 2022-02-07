@@ -16,7 +16,7 @@ import BackgroundCircles from "../components/BackgroundCircles";
 
 const RoomAdjuster = (props) => {
     return (
-        <div className="RoomAdjuster">
+        <div className="RoomAdjuster grid" style={{height: "calc(100vh - 70px)", gridTemplateRows: "auto 1fr"}}>
             <Header>
             <BackgroundCircles />
                 <section className="Control-panel__section flex justify-between">

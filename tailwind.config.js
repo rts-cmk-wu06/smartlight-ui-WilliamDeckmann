@@ -24,6 +24,12 @@ module.exports = {
           border: "#FFFFFF",
           notification: "#FF9898",
         },
+        intensitySelector: {
+          activeMeter: "#FFD339",
+          offMeter: "#CECECE",
+          setting: "#CECECE",
+          adjuster: "#FFFFFF",
+        },
 
         buttonRed: {
           start: "#FF9B9B",

@@ -14,7 +14,7 @@ import ContainerHeading from "../components/ContainerHeading"
 
 const RoomSelector = (props) => {
     return (
-        <div className="Room-selector flex flex-col gap-y-6">
+        <div className="Room-selector w-full flex flex-col gap-y-6">
             <ContainerHeading text="All Rooms" />
             <ul className="Room-selector__list grid grid-cols-2 gap-x-6 gap-y-5">
                 <RoomCard url="/bed-room" src={BedRoom} alt="bed room" name="Bed Room" lights={4} />

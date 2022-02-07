@@ -16,7 +16,7 @@ const ColorSelector = () => {
     ];
 
     return (
-        <div className="Color-selector__list flex flex-col gap-y-6">
+        <div className="Color-selector__list w-full flex flex-col gap-y-6">
             <ContainerHeading text="Colors" />
             <ul className="Color-selector__list flex gap-x-4">
                 {colorArray.map(item => (

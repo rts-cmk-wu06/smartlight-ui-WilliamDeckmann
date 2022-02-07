@@ -34,6 +34,10 @@ module.exports = {
           setting: "#CECECE",
           adjuster: "#FFFFFF",
         },
+        powerButton: {
+          background: "#FFFFFF",
+          icon: "#FF9696",
+        },
 
         buttonRed: {
           start: "#FF9B9B",

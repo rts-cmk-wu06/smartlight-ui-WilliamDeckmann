@@ -16,7 +16,7 @@ const ControlPanel = () => {
             <Header>
                 <article className="Control-panel__article mt-16 flex justify-between">
                     <PageHeading text="Control Panel" />
-                    <ProfileIcon src={Dog} />
+                    <ProfileIcon src={Dog} active={true} />
                 </article>
             </Header>
             <Main>

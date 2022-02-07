@@ -1,6 +1,7 @@
 // Templates
 import Header from "../templates/Header";
-import Main from "../templates/Main";
+import Main from "../templates/Main"; 
+import LightSelector from "../templates/LightSelector";
 import IntensityAdjuster from "../templates/IntensityAdjuster";
 import ColorSelector from "../templates/ColorSelector";
 import SceneSelector from "../templates/SceneSelector";
@@ -25,6 +26,7 @@ const RoomAdjuster = (props) => {
                     </article>
                     <Lamp color="#ffd139" shine="#ffc72f" />
                 </section>
+                <LightSelector />
             </Header>
             <Main>
                 <IntensityAdjuster active={true} />

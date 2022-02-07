@@ -11,6 +11,7 @@ import BackButton from "../components/BackButton";
 import PageHeading from "../components/PageHeading";
 import LightCountBig from "../components/LightCountBig";
 import Lamp from "../components/Lamp";
+import PowerButton from "../components/PowerButton";
 
 const RoomAdjuster = (props) => {
     return (
@@ -32,6 +33,7 @@ const RoomAdjuster = (props) => {
                 <IntensityAdjuster active={true} />
                 <ColorSelector />
                 <SceneSelector />
+                <PowerButton />
             </Main>
         </div>
     );

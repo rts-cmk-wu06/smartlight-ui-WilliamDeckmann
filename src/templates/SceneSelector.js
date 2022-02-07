@@ -3,7 +3,7 @@ import SceneButton from "../components/SceneButton";
 
 const SceneSelector = () => {
     return (
-        <div className="Scene-selector flex flex-col gap-y-6">
+        <div className="Scene-selector w-full flex flex-col gap-y-6">
             <ContainerHeading text="Scenes" />
             <ul className="Scene-selector__list grid grid-cols-2 gap-x-6 gap-y-5">
                 <SceneButton color="linear-gradient(90deg, #FF9B9B, #FFBC91)" text="Birthday" />

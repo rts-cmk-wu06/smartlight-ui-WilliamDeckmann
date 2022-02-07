@@ -10,14 +10,8 @@ import Footer from "./Footer";
 import Navigation from "./Navigation";
 
 function App() {
-
-  const styles = {
-    "maxWidth": "375px",
-    "border": "1px solid red",
-  }
-
   return (
-    <div className="App bg-background" style={styles}>
+    <div className="App h-screen bg-background" style={{height: "100vh", maxWidth: "375px"}}>
       <Routes>
         <Route exact path="/" element={<ControlPanel />} />
         <Route exact path="/bed-room" element={<RoomAdjuster name="Bed Room" lights={4} />} />

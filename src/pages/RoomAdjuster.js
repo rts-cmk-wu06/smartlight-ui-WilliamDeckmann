@@ -12,11 +12,13 @@ import PageHeading from "../components/PageHeading";
 import LightCountBig from "../components/LightCountBig";
 import Lamp from "../components/Lamp";
 import PowerButton from "../components/PowerButton";
+import BackgroundCircles from "../components/BackgroundCircles";
 
 const RoomAdjuster = (props) => {
     return (
         <div className="RoomAdjuster">
             <Header>
+            <BackgroundCircles />
                 <section className="Control-panel__section flex justify-between">
                     <article className="Control-panel__article mt-16 flex flex-col gap-y-2">
                         <span className="Control-panel__span flex items-center gap-x-1">

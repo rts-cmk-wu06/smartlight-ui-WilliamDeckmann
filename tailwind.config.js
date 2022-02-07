@@ -20,6 +20,10 @@ module.exports = {
           active: "#FFFFFF",
           inactive: "#002D67",
         },
+        buttonBackground: {
+          active: "#002D67",
+          inactive: "#FFFFFF",
+        },
         profileIcon: {
           border: "#FFFFFF",
           notification: "#FF9898",

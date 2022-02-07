@@ -6,20 +6,23 @@ import Bathroom from "../assets/bathroom.png"
 import Outdoor from "../assets/outdoor.png"
 import Balcony from "../assets/balcony.png"
 
-// Components
-import RoomCard from "../components/RoomCard";
+// Templates
+import RoomCard from "./RoomCard";
 
-const RoomSelector = () => {
+// Components
+import ContainerHeading from "../components/ContainerHeading"
+
+const RoomSelector = (props) => {
     return (
-        <div className="Room-selector flex flex-col gap-x-24">
-            All Rooms
+        <div className="Room-selector w-full flex flex-col gap-y-6">
+            <ContainerHeading text="All Rooms" />
             <ul className="Room-selector__list grid grid-cols-2 gap-x-6 gap-y-5">
-                <RoomCard url="/bed-room" src={BedRoom} alt="bed room" />
-                <RoomCard url="/living-room" src={LivingRoom} alt="living room" />
-                <RoomCard url="/kitchen" src={Kitchen} alt="kitchen" />
-                <RoomCard url="/bathroom" src={Bathroom} alt="bathroom" />
-                <RoomCard url="/outdoor" src={Outdoor} alt="outdoor" />
-                <RoomCard url="/balcony" src={Balcony} alt="balcony" />
+                <RoomCard url="/bed-room" src={BedRoom} alt="bed room" name="Bed Room" lights={4} />
+                <RoomCard url="/living-room" src={LivingRoom} alt="living room" name="Living Room" lights={2} />
+                <RoomCard url="/kitchen" src={Kitchen} alt="kitchen" name="Kitchen" lights={5} />
+                <RoomCard url="/bathroom" src={Bathroom} alt="bathroom" name="bathRoom" lights={1} />
+                <RoomCard url="/outdoor" src={Outdoor} alt="outdoor" name="Outdoor" lights={5} />
+                <RoomCard url="/balcony" src={Balcony} alt="balcony" name="Balcony" lights={2} />
             </ul>
         </div>
     );

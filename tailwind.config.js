@@ -12,9 +12,32 @@ module.exports = {
         pageHeading: "#FFFFFF",
         containerHeading: "#002D67",
         cardHeading: "#393939",
-        lightCount: "#FFA939",
-        buttonTextActive: "#FFFFFF",
-        buttonTextInactive: "#002D67",
+        lightCount: {
+          small: "#FFA939",
+          big:"#FFD239",
+        },
+        buttonText: {
+          active: "#FFFFFF",
+          inactive: "#002D67",
+        },
+        buttonBackground: {
+          active: "#002D67",
+          inactive: "#FFFFFF",
+        },
+        profileIcon: {
+          border: "#FFFFFF",
+          notification: "#FF9898",
+        },
+        intensitySelector: {
+          activeMeter: "#FFD339",
+          offMeter: "#CECECE",
+          setting: "#CECECE",
+          adjuster: "#FFFFFF",
+        },
+        powerButton: {
+          background: "#FFFFFF",
+          icon: "#FF9696",
+        },
 
         buttonRed: {
           start: "#FF9B9B",
@@ -40,6 +63,7 @@ module.exports = {
           purple: "#A594EB",
           pink: "#DE94EB",
           yellow: "#EBD094",
+          white: "#FFFFFF",
         }
       }
     },

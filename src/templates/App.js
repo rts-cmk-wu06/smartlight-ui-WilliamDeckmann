@@ -1,5 +1,6 @@
 // Imports
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion"
 
 // Pages
 import ControlPanelHeader from "../pages/ControlPanelHeader";
@@ -17,35 +18,37 @@ import Navigation from "./Navigation";
 import BackgroundCircles from "../components/BackgroundCircles";
 
 function App() {
+  const location = useLocation();
+
   return (
     <div className="App h-screen grid bg-background" style={{maxWidth: "375px", gridTemplateRows: "auto 1fr auto"}}>
-      <Header>
+      <AnimatePresence exitBeforeEnter>
         <BackgroundCircles />
-        <Routes>
-          <Route exact path="/" element={<ControlPanelHeader />} />
-          <Route exact path="/bed-room" element={<RoomAdjusterHeader name="Bed Room" lights={4} />} />
-          <Route exact path="/living-room" element={<RoomAdjusterHeader name="Living Room" lights={2} />} />
-          <Route exact path="/kitchen" element={<RoomAdjusterHeader name="Kitchen" lights={5} />} />
-          <Route exact path="/bathroom" element={<RoomAdjusterHeader name="Bathroom" lights={1} />} />
-          <Route exact path="/outdoor" element={<RoomAdjusterHeader name="Outdoor" lights={5} />} />
-          <Route exact path="/balcony" element={<RoomAdjusterHeader name="Balcony" lights={2} />} />
-          <Route path="*" element="Nothing found..." />
-        </Routes>
-      </Header>
-
-      <Main>
-        <Routes>
-          <Route exact path="/" element={<ControlPanelMain />} />
-          <Route exact path="/bed-room" element={<RoomAdjusterMain />} />
-          <Route exact path="/living-room" element={<RoomAdjusterMain />} />
-          <Route exact path="/kitchen" element={<RoomAdjusterMain />} />
-          <Route exact path="/bathroom" element={<RoomAdjusterMain />} />
-          <Route exact path="/outdoor" element={<RoomAdjusterMain />} />
-          <Route exact path="/balcony" element={<RoomAdjusterMain />} />
-          <Route path="*" element="Nothing found..." />
-        </Routes>
-      </Main>
-
+        <Header>
+          <Routes location={location} key={location.pathname}> 
+            <Route exact path="/" element={<ControlPanelHeader />} />
+            <Route exact path="/bed-room" element={<RoomAdjusterHeader name="Bed Room" lights={4} />} />
+            <Route exact path="/living-room" element={<RoomAdjusterHeader name="Living Room" lights={2} />} />
+            <Route exact path="/kitchen" element={<RoomAdjusterHeader name="Kitchen" lights={5} />} />
+            <Route exact path="/bathroom" element={<RoomAdjusterHeader name="Bathroom" lights={1} />} />
+            <Route exact path="/outdoor" element={<RoomAdjusterHeader name="Outdoor" lights={5} />} />
+            <Route exact path="/balcony" element={<RoomAdjusterHeader name="Balcony" lights={2} />} />
+            <Route path="*" element="Nothing found..." />
+          </Routes>
+        </Header>
+        <Main>
+          <Routes location={location} key={location.pathname}>
+            <Route exact path="/" element={<ControlPanelMain />} />
+            <Route exact path="/bed-room" element={<RoomAdjusterMain />} />
+            <Route exact path="/living-room" element={<RoomAdjusterMain />} />
+            <Route exact path="/kitchen" element={<RoomAdjusterMain />} />
+            <Route exact path="/bathroom" element={<RoomAdjusterMain />} />
+            <Route exact path="/outdoor" element={<RoomAdjusterMain />} />
+            <Route exact path="/balcony" element={<RoomAdjusterMain />} />
+            <Route path="*" element="Nothing found..." />
+          </Routes>
+        </Main>
+      </AnimatePresence>
       <Footer>
         <Navigation />
       </Footer>

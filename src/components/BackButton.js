@@ -9,9 +9,11 @@ import BackArrow from "../assets/back_arrow.png"
 
 const BackButton = () => {
     return (
-        <Link to="/">
-            <Icon src={BackArrow} alt="back arrow" />
-        </Link>
+        <button className="Back-button">
+            <Link to="/">
+                <Icon src={BackArrow} alt="back arrow" />
+            </Link>
+        </button>
     );
 }
  

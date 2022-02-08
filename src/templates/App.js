@@ -1,6 +1,6 @@
 // Imports
 import { Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 // Pages
 import ControlPanelHeader from "../pages/ControlPanelHeader";
@@ -20,35 +20,69 @@ import BackgroundCircles from "../components/BackgroundCircles";
 function App() {
   const location = useLocation();
 
+  const variants = {
+    start: {
+        opacity: 0,
+        transition: {
+            duration: 1,
+        },
+    },
+    end: {
+        opacity: 1,
+        transition: {
+            duration: 1,
+        },
+    },
+    exit: {
+        opacity: 0,
+        transition: {
+            duration: 1,
+        },
+    }
+  }
+
   return (
     <div className="App h-screen grid bg-background" style={{maxWidth: "375px", gridTemplateRows: "auto 1fr auto"}}>
-      <AnimatePresence exitBeforeEnter>
-        <BackgroundCircles />
-        <Header>
+        <AnimatePresence exitBeforeEnter>
           <Routes location={location} key={location.pathname}> 
-            <Route exact path="/" element={<ControlPanelHeader />} />
-            <Route exact path="/bed-room" element={<RoomAdjusterHeader name="Bed Room" lights={4} />} />
-            <Route exact path="/living-room" element={<RoomAdjusterHeader name="Living Room" lights={2} />} />
-            <Route exact path="/kitchen" element={<RoomAdjusterHeader name="Kitchen" lights={5} />} />
-            <Route exact path="/bathroom" element={<RoomAdjusterHeader name="Bathroom" lights={1} />} />
-            <Route exact path="/outdoor" element={<RoomAdjusterHeader name="Outdoor" lights={5} />} />
-            <Route exact path="/balcony" element={<RoomAdjusterHeader name="Balcony" lights={2} />} />
+            <Route exact path="/" element={<motion.div className="Animation-container" initial={{rotate: "0deg"}} exit={{rotate: "-45deg"}} transition={{duration: 2}}><BackgroundCircles /></motion.div>} />
+            <Route exact path="/bed-room" element={<motion.div className="Animation-container" initial={{rotate: "-45deg"}} exit={{rotate: "0deg"}} transition={{duration: 2}}><BackgroundCircles /></motion.div>} />
+            <Route exact path="/living-room" element={<motion.div className="Animation-container" initial={{rotate: "-45deg"}} exit={{rotate: "0deg"}} transition={{duration: 2}}><BackgroundCircles /></motion.div>} />
+            <Route exact path="/kitchen" element={<motion.div className="Animation-container" initial={{rotate: "-45deg"}} exit={{rotate: "0deg"}} transition={{duration: 2}}><BackgroundCircles /></motion.div>} />
+            <Route exact path="/bathroom" element={<motion.div className="Animation-container" initial={{rotate: "-45deg"}} exit={{rotate: "0deg"}} transition={{duration: 2}}><BackgroundCircles /></motion.div>} />
+            <Route exact path="/outdoor" element={<motion.div className="Animation-container" initial={{rotate: "-45deg"}} exit={{rotate: "0deg"}} transition={{duration: 2}}><BackgroundCircles /></motion.div>} />
+            <Route exact path="/balcony" element={<motion.div className="Animation-container" initial={{rotate: "-45deg"}} exit={{rotate: "0deg"}} transition={{duration: 2}}><BackgroundCircles /></motion.div>} />
             <Route path="*" element="Nothing found..." />
           </Routes>
+        </AnimatePresence>
+        <Header>
+          <AnimatePresence exitBeforeEnter>
+            <Routes location={location} key={location.pathname}> 
+              <Route exact path="/" element={<ControlPanelHeader variants={variants} />} />
+              <Route exact path="/bed-room" element={<RoomAdjusterHeader name="Bed Room" lights={4} variants={variants} />} />
+              <Route exact path="/living-room" element={<RoomAdjusterHeader name="Living Room" lights={2} variants={variants} />} />
+              <Route exact path="/kitchen" element={<RoomAdjusterHeader name="Kitchen" lights={5} variants={variants} />} />
+              <Route exact path="/bathroom" element={<RoomAdjusterHeader name="Bathroom" lights={1} variants={variants} />} />
+              <Route exact path="/outdoor" element={<RoomAdjusterHeader name="Outdoor" lights={5} variants={variants} />} />
+              <Route exact path="/balcony" element={<RoomAdjusterHeader name="Balcony" lights={2} variants={variants} />} />
+              <Route path="*" element="Nothing found..." />
+            </Routes>
+          </AnimatePresence>
         </Header>
         <Main>
-          <Routes location={location} key={location.pathname}>
-            <Route exact path="/" element={<ControlPanelMain />} />
-            <Route exact path="/bed-room" element={<RoomAdjusterMain />} />
-            <Route exact path="/living-room" element={<RoomAdjusterMain />} />
-            <Route exact path="/kitchen" element={<RoomAdjusterMain />} />
-            <Route exact path="/bathroom" element={<RoomAdjusterMain />} />
-            <Route exact path="/outdoor" element={<RoomAdjusterMain />} />
-            <Route exact path="/balcony" element={<RoomAdjusterMain />} />
-            <Route path="*" element="Nothing found..." />
-          </Routes>
+          <AnimatePresence exitBeforeEnter>
+            <Routes location={location} key={location.pathname}>
+              <Route exact path="/" element={<ControlPanelMain variants={variants} />} />
+              <Route exact path="/bed-room" element={<RoomAdjusterMain variants={variants} />} />
+              <Route exact path="/living-room" element={<RoomAdjusterMain variants={variants} />} />
+              <Route exact path="/kitchen" element={<RoomAdjusterMain variants={variants} />} />
+              <Route exact path="/bathroom" element={<RoomAdjusterMain variants={variants} />} />
+              <Route exact path="/outdoor" element={<RoomAdjusterMain variants={variants} />} />
+              <Route exact path="/balcony" element={<RoomAdjusterMain variants={variants} />} />
+              <Route path="*" element="Nothing found..." />
+            </Routes>
+          </AnimatePresence>
         </Main>
-      </AnimatePresence>
       <Footer>
         <Navigation />
       </Footer>

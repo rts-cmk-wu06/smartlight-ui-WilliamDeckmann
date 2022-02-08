@@ -30,7 +30,7 @@ module.exports = {
         },
         intensitySelector: {
           activeMeter: "#FFD339",
-          offMeter: "#CECECE",
+          inactiveMeter: "#CECECE",
           setting: "#CECECE",
           adjuster: "#FFFFFF",
         },

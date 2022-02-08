@@ -1,3 +1,6 @@
+// Imports
+import { motion } from "framer-motion"
+
 // Components
 import ContainerHeading from "../components/ContainerHeading";
 import ColorAdder from "../components/ColorAdder";
@@ -7,21 +10,53 @@ const ColorSelector = () => {
 
     // Color array
     let colorArray = [
-        "#FF9B9B",
-        "#94EB9E",
-        "#94CAEB",
-        "#A594EB",
-        "#DE94EB",
-        "#EBD094",
+        {
+            id: 1,
+            color: "#FF9B9B",
+        },
+        {
+            id: 2,
+            color: "#94EB9E",
+        },
+        {
+            id: 3,
+            color: "#94CAEB",
+        },
+        {
+            id: 4,
+            color: "#A594EB",
+        },
+        {
+            id: 5,
+            color: "#DE94EB",
+        },
+        {
+            id: 6,
+            color: "#EBD094",
+        },
     ];
 
     return (
         <div className="Color-selector__list w-full flex flex-col gap-y-6">
             <ContainerHeading text="Colors" />
-            <ul className="Color-selector__list flex gap-x-4">
-                {colorArray.map(item => (
-                    <ColorButton color={item} />
-                ))}
+            <ul className="Color-selector__list flex">
+                {colorArray.map(item => {
+                    console.log(item.id)
+                    if(item.id == 1) {
+                        return (
+                            <ColorButton color={item.color} />
+                        );
+                    } else {
+                        return (
+                            <motion.div className=""
+                            initial={{marginLeft: "-6px"}}
+                            animate={{marginLeft: "16px"}}
+                            transition={{delay: 1, duration: 1}}>
+                                <ColorButton color={item.color} />
+                            </motion.div>
+                        );
+                    };
+                })}
                 <ColorAdder />
             </ul>
         </div>

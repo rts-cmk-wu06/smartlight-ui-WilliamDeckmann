@@ -5,16 +5,16 @@ import { Link } from "react-router-dom";
 import Icon from "./Icon";
 
 // Assets
-import BackArrow from "../assets/back_arrow.png"
+import BackArrow from "../assets/back_arrow.png";
 
 const BackButton = () => {
-    return (
-        <button className="Back-button z-10">
-            <Link to="/">
-                <Icon src={BackArrow} alt="back arrow" />
-            </Link>
-        </button>
-    );
-}
- 
+  return (
+    <button className="Back-button z-10">
+      <Link to="/">
+        <Icon src={BackArrow} alt="back arrow" />
+      </Link>
+    </button>
+  );
+};
+
 export default BackButton;

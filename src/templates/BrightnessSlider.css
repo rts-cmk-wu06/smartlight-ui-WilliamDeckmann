@@ -1,0 +1,34 @@
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  vertical-align: middle;
+  
+}
+
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  background-color: #ffffff;
+  border-radius: 100%;
+  box-shadow: 0 1px 1px #757575;
+  cursor: pointer;
+  position: relative;
+  margin-top: -6px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1px;
+  cursor: pointer;
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+  background: #CECECE;
+}

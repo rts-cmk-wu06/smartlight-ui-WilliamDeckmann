@@ -1,5 +1,5 @@
 // Imports
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import axios from "axios";
 import ColorConverter from "cie-rgb-color-converter";
 import hexRgb from "hex-rgb";

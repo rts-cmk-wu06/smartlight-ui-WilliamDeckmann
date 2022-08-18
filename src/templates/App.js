@@ -1,16 +1,8 @@
 // Imports
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import * as Sentry from "@sentry/react";
-
-// Assets
-import BedRoom from "../assets/bed_room.png";
-import LivingRoom from "../assets/living_room.png";
-import Kitchen from "../assets/kitchen.png";
-import Bathroom from "../assets/bathroom.png";
-import Outdoor from "../assets/outdoor.png";
-import Balcony from "../assets/balcony.png";
 
 // Pages
 import ControlPanelHeader from "../pages/ControlPanelHeader";
@@ -30,64 +22,13 @@ import ErrorBoundary from "../components/ErrorBoundary";
 
 // Context
 import ApiContext from "../context/ApiContext";
-
-// Room array
-let RoomArray = [
-  {
-    id: 1,
-    url: "bed-room",
-    name: "Bed Room",
-    lights: 4,
-    img: BedRoom,
-    alt: "bed room",
-  },
-  {
-    id: 2,
-    url: "living-room",
-    name: "Living Room",
-    lights: 2,
-    img: LivingRoom,
-    alt: "living room",
-  },
-  {
-    id: 3,
-    url: "kitchen",
-    name: "Kitchen",
-    lights: 5,
-    img: Kitchen,
-    alt: "kitchen",
-  },
-  {
-    id: 4,
-    url: "bathroom",
-    name: "Bathroom",
-    lights: 1,
-    img: Bathroom,
-    alt: "bathroom",
-  },
-
-  {
-    id: 5,
-    url: "outdoor",
-    name: "Outdoor",
-    lights: 5,
-    img: Outdoor,
-    alt: "outdoor",
-  },
-
-  {
-    id: 6,
-    url: "balcony",
-    name: "Balcony",
-    lights: 2,
-    img: Balcony,
-    alt: "balcony",
-  },
-];
+import ColorContext from "../context/ColorContext";
 
 function App() {
   // Use context
   const context = useContext(ApiContext);
+  const [ colorValue, setColorValue ] = useState("#ffffff");
+  const color = { colorValue, setColorValue };
 
   // Variables
   const location = useLocation();
@@ -120,46 +61,9 @@ function App() {
       style={{ maxWidth: "375px", gridTemplateRows: "auto 1fr auto" }}
     >
       <ApiContext.Provider value={context}>
+        <ColorContext.Provider value={color}>
 
-        {/* Background circles */}
-        <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>
-          <AnimatePresence exitBeforeEnter>
-            <Routes location={location} key={location.pathname}>
-              <Route
-                exact
-                path="/"
-                element={
-                  <motion.div
-                    className="Animation-container absolute col-start-1 col-end-2 row-start-1 row-end-2"
-                    initial={{ rotate: "0deg" }}
-                    exit={{ rotate: "-45deg" }}
-                    transition={{ duration: 2 }}
-                  >
-                    <BackgroundCircles />
-                  </motion.div>
-                }
-              />
-              <Route
-                exact
-                path="/:id"
-                element={
-                  <motion.div
-                    className="Animation-container absolute col-start-1 col-end-2 row-start-1 row-end-2"
-                    initial={{ rotate: "-45deg" }}
-                    exit={{ rotate: "0deg" }}
-                    transition={{ duration: 2 }}
-                  >
-                    <BackgroundCircles />
-                  </motion.div>
-                }
-              />
-              <Route path="*" element="Nothing found..." />
-            </Routes>
-          </AnimatePresence>
-        </Sentry.ErrorBoundary>
-
-        {/* Header */}
-        <Header>
+          {/* Background circles */}
           <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>
             <AnimatePresence exitBeforeEnter>
               <Routes location={location} key={location.pathname}>
@@ -167,55 +71,94 @@ function App() {
                   exact
                   path="/"
                   element={
-                    <ControlPanelHeader variants={variants} />
+                    <motion.div
+                      className="Animation-container absolute col-start-1 col-end-2 row-start-1 row-end-2"
+                      initial={{ rotate: "0deg" }}
+                      exit={{ rotate: "-45deg" }}
+                      transition={{ duration: 2 }}
+                    >
+                      <BackgroundCircles />
+                    </motion.div>
                   }
                 />
                 <Route
                   exact
                   path="/:id"
                   element={
-                    <RoomAdjusterHeader
-                      name="Room"
-                      lights={0}
-                      variants={variants}
-                    />
+                    <motion.div
+                      className="Animation-container absolute col-start-1 col-end-2 row-start-1 row-end-2"
+                      initial={{ rotate: "-45deg" }}
+                      exit={{ rotate: "0deg" }}
+                      transition={{ duration: 2 }}
+                    >
+                      <BackgroundCircles />
+                    </motion.div>
                   }
                 />
                 <Route path="*" element="Nothing found..." />
               </Routes>
             </AnimatePresence>
           </Sentry.ErrorBoundary>
-        </Header>
 
-        {/* Main */}
-        <Main>
-          <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>
-            <AnimatePresence exitBeforeEnter>
-              {<Routes location={location} key={location.pathname}>
-                <Route
-                  exact
-                  path="/"
-                  element={
-                    <ControlPanelMain variants={variants} />
-                  }
-                />
-                <Route
-                  exact
-                  path="/:id"
-                  element={
-                    <RoomAdjusterMain variants={variants} />
-                  }
-                />
-                <Route path="*" element="Nothing found..." />
-              </Routes>}
-            </AnimatePresence>
-          </Sentry.ErrorBoundary>
-        </Main>
-        
-        {/* Footer */}
-        <Footer>
-          <Navigation />
-        </Footer>
+          {/* Header */}
+          <Header>
+            <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>
+              <AnimatePresence exitBeforeEnter>
+                <Routes location={location} key={location.pathname}>
+                  <Route
+                    exact
+                    path="/"
+                    element={
+                      <ControlPanelHeader variants={variants} />
+                    }
+                  />
+                  <Route
+                    exact
+                    path="/:id"
+                    element={
+                      <RoomAdjusterHeader
+                        name="Room"
+                        lights={0}
+                        variants={variants}
+                      />
+                    }
+                  />
+                  <Route path="*" element="Nothing found..." />
+                </Routes>
+              </AnimatePresence>
+            </Sentry.ErrorBoundary>
+          </Header>
+
+          {/* Main */}
+          <Main>
+            <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>
+              <AnimatePresence exitBeforeEnter>
+                {<Routes location={location} key={location.pathname}>
+                  <Route
+                    exact
+                    path="/"
+                    element={
+                      <ControlPanelMain variants={variants} />
+                    }
+                  />
+                  <Route
+                    exact
+                    path="/:id"
+                    element={
+                      <RoomAdjusterMain variants={variants} />
+                    }
+                  />
+                  <Route path="*" element="Nothing found..." />
+                </Routes>}
+              </AnimatePresence>
+            </Sentry.ErrorBoundary>
+          </Main>
+          
+          {/* Footer */}
+          <Footer>
+            <Navigation />
+          </Footer>
+        </ColorContext.Provider>
       </ApiContext.Provider>
     </div>
   );

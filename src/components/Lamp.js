@@ -1,7 +1,13 @@
 // Imports
+import { useContext } from "react";
 import { motion } from "framer-motion";
 
-const Lamp = (props) => {
+// Context
+import ColorContext from "../context/ColorContext";
+
+const Lamp = () => {
+  const { colorValue } = useContext(ColorContext);
+
   return (
     <motion.div
       className="Lamp"
@@ -40,7 +46,7 @@ const Lamp = (props) => {
           >
             <feOffset dy="3"></feOffset>
             <feGaussianBlur result="blur-2" stdDeviation="8"></feGaussianBlur>
-            <feFlood floodColor={props.shine}></feFlood>
+            <feFlood floodColor={colorValue}></feFlood>
             <feComposite in2="blur-2" operator="in"></feComposite>
             <feComposite in="SourceGraphic"></feComposite>
           </filter>
@@ -61,7 +67,7 @@ const Lamp = (props) => {
               cx="11"
               cy="11"
               r="11"
-              fill={props.color}
+              fill={colorValue}
               data-name="Ellipse 10"
               transform="translate(59 143)"
             ></circle>

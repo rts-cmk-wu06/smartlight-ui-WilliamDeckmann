@@ -10,7 +10,8 @@ const SceneSelector = () => {
       <ContainerHeading text="Scenes" />
       <ul className="Scene-selector__list grid grid-cols-2 gap-x-6 gap-y-5">
         <SceneButton
-          color="linear-gradient(90deg, #FF9B9B, #FFBC91)"
+          gradient="linear-gradient(90deg, #FF9B9B, #FFBC91)"
+          color="#FF9B9B"
           text="Birthday"
         />
         <motion.div
@@ -20,12 +21,14 @@ const SceneSelector = () => {
           transition={{ delay: 1, duration: 1 }}
         >
           <SceneButton
-            color="linear-gradient(90deg, #A693EB, #DA93EB)"
-            text="Part"
+            gradient="linear-gradient(90deg, #A693EB, #DA93EB)"
+            color="#A693EB"
+            text="Party"
           />
         </motion.div>
         <SceneButton
-          color="linear-gradient(90deg, #93CAEB, #93DDEB)"
+          gradient="linear-gradient(90deg, #93CAEB, #93DDEB)"
+          color="#93CAEB"
           text="Relax"
         />
         <motion.div
@@ -35,7 +38,8 @@ const SceneSelector = () => {
           transition={{ delay: 1, duration: 1 }}
         >
           <SceneButton
-            color="linear-gradient(90deg, #89DD94, #BFEC92)"
+            gradient="linear-gradient(90deg, #89DD94, #BFEC92)"
+            color="#89DD94"
             text="Fun"
           />
         </motion.div>

@@ -6,24 +6,24 @@ import hexRgb from "hex-rgb";
 
 // Context
 import ApiContext from "../context/ApiContext";
+import ColorContext from "../context/ColorContext";
 
 const ColorButton = (props) => {
   // API url
   const url = useContext(ApiContext);
   const stateEndPoint = "lights/27/state";
 
+  // Use context
+  const { setColorValue } = useContext(ColorContext);
+
   // Hex values to RGB
-  //const [colorState, setColorState] = useState("#ffffff");
-  //const rgb = hexRgb(colorState);
   const rgb = hexRgb(props.color);
 
   // Color coordinates
   let coordinates = ColorConverter.rgbToXy(rgb.red, rgb.green, rgb.blue);
-  //const [coordinateState, setCoordinateState] = useState(xy);
 
   const ChangeColor = () => {
-    //setColorState(props.color);
-    //setCoordinateState(xy);
+    setColorValue(props.color)
     axios({
       method: "put",
       url: url + stateEndPoint,

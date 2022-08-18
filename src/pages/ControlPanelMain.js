@@ -13,7 +13,7 @@ const ControlPanelMain = (props) => {
       animate="end"
       exit="exit"
     >
-      <RoomSelector data={props.rooms} />
+      <RoomSelector />
     </motion.div>
   );
 };

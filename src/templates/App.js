@@ -116,10 +116,12 @@ function App() {
 
   return (
     <div
-      className="App h-screen grid bg-background overflow-hidden"
+      className="App h-screen grid bg-background"
       style={{ maxWidth: "375px", gridTemplateRows: "auto 1fr auto" }}
     >
       <ApiContext.Provider value={context}>
+
+        {/* Background circles */}
         <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>
           <AnimatePresence exitBeforeEnter>
             <Routes location={location} key={location.pathname}>
@@ -156,6 +158,7 @@ function App() {
           </AnimatePresence>
         </Sentry.ErrorBoundary>
 
+        {/* Header */}
         <Header>
           <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>
             <AnimatePresence exitBeforeEnter>
@@ -164,7 +167,7 @@ function App() {
                   exact
                   path="/"
                   element={
-                    <ControlPanelHeader rooms={RoomArray} variants={variants} />
+                    <ControlPanelHeader variants={variants} />
                   }
                 />
                 <Route
@@ -172,7 +175,6 @@ function App() {
                   path="/:id"
                   element={
                     <RoomAdjusterHeader
-                      rooms={RoomArray}
                       name="Room"
                       lights={0}
                       variants={variants}
@@ -185,30 +187,32 @@ function App() {
           </Sentry.ErrorBoundary>
         </Header>
 
+        {/* Main */}
         <Main>
           <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>
             <AnimatePresence exitBeforeEnter>
-              <Routes location={location} key={location.pathname}>
+              {<Routes location={location} key={location.pathname}>
                 <Route
                   exact
                   path="/"
                   element={
-                    <ControlPanelMain rooms={RoomArray} variants={variants} />
+                    <ControlPanelMain variants={variants} />
                   }
                 />
                 <Route
                   exact
                   path="/:id"
                   element={
-                    <RoomAdjusterMain rooms={RoomArray} variants={variants} />
+                    <RoomAdjusterMain variants={variants} />
                   }
                 />
                 <Route path="*" element="Nothing found..." />
-              </Routes>
+              </Routes>}
             </AnimatePresence>
           </Sentry.ErrorBoundary>
         </Main>
-
+        
+        {/* Footer */}
         <Footer>
           <Navigation />
         </Footer>

@@ -15,10 +15,12 @@ import Lamp from "../components/Lamp";
 
 // Context
 import ApiContext from "../context/ApiContext";
+import EndPointContext from "../context/EndPointContext";
 
 const RoomAdjusterHeader = (props) => {
   // Use context
   const url = useContext(ApiContext);
+  const { endPointValue } = useContext(EndPointContext);
 
   // Room array & light array
   const [ groupArray, setGroupArray ] = useState();
@@ -59,7 +61,7 @@ const RoomAdjusterHeader = (props) => {
                   <article className="RoomAdjuster__article mt-16 flex flex-col gap-y-2">
                     <p className="RoomAdjuster__paragraph flex items-center gap-x-1">
                       <BackButton />
-                      <PageHeading text={room.class} />
+                      <PageHeading text={`${room.class}: ${endPointValue}`} />
                     </p>
                     <LightCountBig text={room.lights.length} />
                   </article>

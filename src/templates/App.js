@@ -22,13 +22,18 @@ import ErrorBoundary from "../components/ErrorBoundary";
 
 // Context
 import ApiContext from "../context/ApiContext";
+import EndPointContext from "../context/EndPointContext";
 import ColorContext from "../context/ColorContext";
 
 function App() {
   // Use context
-  const context = useContext(ApiContext);
+  const api = useContext(ApiContext);
+  const [ endPointValue, setEndPointValue ] = useState("...");
+  const endPoint = { endPointValue, setEndPointValue };
   const [ colorValue, setColorValue ] = useState("#ffffff");
   const color = { colorValue, setColorValue };
+
+  
 
   // Variables
   const location = useLocation();
@@ -60,48 +65,11 @@ function App() {
       className="App h-screen grid bg-background"
       style={{ maxWidth: "375px", gridTemplateRows: "auto 1fr auto" }}
     >
-      <ApiContext.Provider value={context}>
-        <ColorContext.Provider value={color}>
+      <ApiContext.Provider value={api}>
+        <EndPointContext.Provider value={endPoint}>
+          <ColorContext.Provider value={color}>
 
-          {/* Background circles */}
-          <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>
-            <AnimatePresence exitBeforeEnter>
-              <Routes location={location} key={location.pathname}>
-                <Route
-                  exact
-                  path="/"
-                  element={
-                    <motion.div
-                      className="Animation-container absolute col-start-1 col-end-2 row-start-1 row-end-2"
-                      initial={{ rotate: "0deg" }}
-                      exit={{ rotate: "-45deg" }}
-                      transition={{ duration: 2 }}
-                    >
-                      <BackgroundCircles />
-                    </motion.div>
-                  }
-                />
-                <Route
-                  exact
-                  path="/:id"
-                  element={
-                    <motion.div
-                      className="Animation-container absolute col-start-1 col-end-2 row-start-1 row-end-2"
-                      initial={{ rotate: "-45deg" }}
-                      exit={{ rotate: "0deg" }}
-                      transition={{ duration: 2 }}
-                    >
-                      <BackgroundCircles />
-                    </motion.div>
-                  }
-                />
-                <Route path="*" element="Nothing found..." />
-              </Routes>
-            </AnimatePresence>
-          </Sentry.ErrorBoundary>
-
-          {/* Header */}
-          <Header>
+            {/* Background circles */}
             <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>
               <AnimatePresence exitBeforeEnter>
                 <Routes location={location} key={location.pathname}>
@@ -109,56 +77,95 @@ function App() {
                     exact
                     path="/"
                     element={
-                      <ControlPanelHeader variants={variants} />
+                      <motion.div
+                        className="Animation-container absolute col-start-1 col-end-2 row-start-1 row-end-2"
+                        initial={{ rotate: "0deg" }}
+                        exit={{ rotate: "-45deg" }}
+                        transition={{ duration: 2 }}
+                      >
+                        <BackgroundCircles />
+                      </motion.div>
                     }
                   />
                   <Route
                     exact
                     path="/:id"
                     element={
-                      <RoomAdjusterHeader
-                        name="Room"
-                        lights={0}
-                        variants={variants}
-                      />
+                      <motion.div
+                        className="Animation-container absolute col-start-1 col-end-2 row-start-1 row-end-2"
+                        initial={{ rotate: "-45deg" }}
+                        exit={{ rotate: "0deg" }}
+                        transition={{ duration: 2 }}
+                      >
+                        <BackgroundCircles />
+                      </motion.div>
                     }
                   />
                   <Route path="*" element="Nothing found..." />
                 </Routes>
               </AnimatePresence>
             </Sentry.ErrorBoundary>
-          </Header>
 
-          {/* Main */}
-          <Main>
-            <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>
-              <AnimatePresence exitBeforeEnter>
-                {<Routes location={location} key={location.pathname}>
-                  <Route
-                    exact
-                    path="/"
-                    element={
-                      <ControlPanelMain variants={variants} />
-                    }
-                  />
-                  <Route
-                    exact
-                    path="/:id"
-                    element={
-                      <RoomAdjusterMain variants={variants} />
-                    }
-                  />
-                  <Route path="*" element="Nothing found..." />
-                </Routes>}
-              </AnimatePresence>
-            </Sentry.ErrorBoundary>
-          </Main>
-          
-          {/* Footer */}
-          <Footer>
-            <Navigation />
-          </Footer>
-        </ColorContext.Provider>
+            {/* Header */}
+            <Header>
+              <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>
+                <AnimatePresence exitBeforeEnter>
+                  <Routes location={location} key={location.pathname}>
+                    <Route
+                      exact
+                      path="/"
+                      element={
+                        <ControlPanelHeader variants={variants} />
+                      }
+                    />
+                    <Route
+                      exact
+                      path="/:id"
+                      element={
+                        <RoomAdjusterHeader
+                          name="Room"
+                          lights={0}
+                          variants={variants}
+                        />
+                      }
+                    />
+                    <Route path="*" element="Nothing found..." />
+                  </Routes>
+                </AnimatePresence>
+              </Sentry.ErrorBoundary>
+            </Header>
+
+            {/* Main */}
+            <Main>
+              <Sentry.ErrorBoundary fallback={<p>An error has occurred</p>}>
+                <AnimatePresence exitBeforeEnter>
+                  {<Routes location={location} key={location.pathname}>
+                    <Route
+                      exact
+                      path="/"
+                      element={
+                        <ControlPanelMain variants={variants} />
+                      }
+                    />
+                    <Route
+                      exact
+                      path="/:id"
+                      element={
+                        <RoomAdjusterMain variants={variants} />
+                      }
+                    />
+                    <Route path="*" element="Nothing found..." />
+                  </Routes>}
+                </AnimatePresence>
+              </Sentry.ErrorBoundary>
+            </Main>
+            
+            {/* Footer */}
+            <Footer>
+              <Navigation />
+            </Footer>
+          </ColorContext.Provider>
+        </EndPointContext.Provider>
       </ApiContext.Provider>
     </div>
   );

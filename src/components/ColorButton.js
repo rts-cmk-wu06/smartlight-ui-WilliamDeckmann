@@ -7,14 +7,18 @@ import hexRgb from "hex-rgb";
 // Context
 import ApiContext from "../context/ApiContext";
 import ColorContext from "../context/ColorContext";
+import EndPointContext from "../context/EndPointContext";
 
 const ColorButton = (props) => {
-  // API url
-  const url = useContext(ApiContext);
-  const stateEndPoint = "lights/27/state";
 
   // Use context
   const { setColorValue } = useContext(ColorContext);
+  const { endPointValue } = useContext(EndPointContext);
+
+  // API url
+  const url = useContext(ApiContext);
+  //const stateEndPoint = "lights/27/state";
+  const stateEndPoint = `lights/${endPointValue}/state`;
 
   // Hex values to RGB
   const rgb = hexRgb(props.color);

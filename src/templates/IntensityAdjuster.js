@@ -15,14 +15,20 @@ import Icon from "../components/Icon";
 
 // Context
 import ApiContext from "../context/ApiContext";
+import EndPointContext from "../context/EndPointContext";
 
 // Stylesheet
 import "./BrightnessSlider.css"
 
 const IntensityAdjuster = () => {
+
+  // Use context
+  const { endPointValue } = useContext(EndPointContext);
+
   // API url
   const url = useContext(ApiContext);
-  const stateEndPoint = "lights/27/state";
+  //const stateEndPoint = "lights/27/state";
+  const stateEndPoint = `lights/${endPointValue}/state`;
 
   // X state
   const [state, setState] = useState({ x: 0 });

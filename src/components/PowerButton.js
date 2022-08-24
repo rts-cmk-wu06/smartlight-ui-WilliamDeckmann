@@ -10,11 +10,16 @@ import Icon from "./Icon";
 
 // Context
 import ApiContext from "../context/ApiContext";
+import EndPointContext from "../context/EndPointContext";
 
 const PowerButton = () => {
-// API url
-const url = useContext(ApiContext);
-const stateEndPoint = "lights/27/state";
+  // Use context
+  const { endPointValue } = useContext(EndPointContext);
+
+  // API url
+  const url = useContext(ApiContext);
+  //const stateEndPoint = "lights/27/state";
+  const stateEndPoint = `lights/${endPointValue}/state`;
 
   // Light state
   const [lightState, setLightState] = useState(false);
